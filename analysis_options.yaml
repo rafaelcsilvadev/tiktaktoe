@@ -1,0 +1,32 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+
+  errors:   
+    avoid_print: warning  
+    always_declare_return_types: warning
+    prefer_const_constructors: warning
+    prefer_const_literals_to_create_immutables: warning
+    require_trailing_commas: warning 
+    sort_constructors_first: warning
+    use_super_parameters: warning
+    avoid_redundant_argument_values: warning
+    unnecessary_null_checks: warning
+    prefer_final_locals: warning 
+    avoid_setters_without_getters: warning 
+
+linter:
+  rules:
+    avoid_print: true  
+    always_declare_return_types: true
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    require_trailing_commas: true 
+    sort_constructors_first: true
+    use_super_parameters: true
+    avoid_redundant_argument_values: true
+    unnecessary_null_checks: true
+    prefer_final_locals: true 
+    avoid_setters_without_getters: true 
