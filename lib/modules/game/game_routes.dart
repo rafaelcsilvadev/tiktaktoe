@@ -1,3 +1,3 @@
-class PlayersRoutes {
+class GameRoutes {
   static const players = '/';
 }
