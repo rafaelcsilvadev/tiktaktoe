@@ -22,7 +22,7 @@ class GameModule extends Module {
     )
     ..child(
       GameRoutes.game,
-      child: (_) => GameView(),
+      child: (_) => const GameView(),
       transition: TransitionType.fadeIn,
     );
   }
