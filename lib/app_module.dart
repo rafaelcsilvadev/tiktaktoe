@@ -14,7 +14,7 @@ class AppModule extends Module {
   @override
   void routes(r) {
     r.module(
-      AppRoutes.players,
+      AppRoutes.games,
       module: GameModule(),
       transition: TransitionType.fadeIn,
     );

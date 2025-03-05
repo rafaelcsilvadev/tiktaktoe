@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gap/gap.dart';
 import 'package:tiktaktoe/core/assets/images/app_images.dart';
 import 'package:tiktaktoe/core/components/app_button/app_button.dart';
 import 'package:tiktaktoe/core/components/app_text/app_text.dart';
 import 'package:tiktaktoe/core/components/app_text_field/app_text_field.dart';
 import 'package:tiktaktoe/core/theme/app_colors.dart';
+import 'package:tiktaktoe/modules/game/game_routes.dart';
 
 class PlayersView extends StatefulWidget {
   const PlayersView({super.key});
@@ -14,6 +16,10 @@ class PlayersView extends StatefulWidget {
 }
 
 class _PlayersViewState extends State<PlayersView> {
+  void onPlayGame() {
+    Modular.to.popAndPushNamed(GameRoutes.game);
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -50,7 +56,7 @@ class _PlayersViewState extends State<PlayersView> {
                 ),
               ),
               Gap(size.height * 0.01),
-              const AppTextField(),
+              const AppTextField(maxLength: 5),
               Gap(size.height * 0.03),
               Container(
                 alignment: Alignment.centerLeft,
@@ -61,7 +67,7 @@ class _PlayersViewState extends State<PlayersView> {
                 ),
               ),
               Gap(size.height * 0.01),
-              const AppTextField(),
+              const AppTextField(maxLength: 5),
               Gap(size.height * 0.06),
               SizedBox(
                 width: size.width,
@@ -70,7 +76,7 @@ class _PlayersViewState extends State<PlayersView> {
                   backgroundColor: WidgetStateProperty.all(
                     AppColors.neutral.value,
                   ),
-                  onPressed: () {},
+                  onPressed: onPlayGame,
                   child: AppText.bold(
                     'Jogar',
                     color: AppColors.primary.value,

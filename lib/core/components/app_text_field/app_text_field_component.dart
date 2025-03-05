@@ -28,6 +28,7 @@ class AppTextFieldComponent extends StatefulWidget {
     this.obscureText = false,
     this.error = false,
     this.maxLines,
+    this.maxLength,
   });
 
   final TextEditingController? controller;
@@ -52,6 +53,7 @@ class AppTextFieldComponent extends StatefulWidget {
   final bool obscureText;
   final bool error;
   final int? maxLines;
+  final int? maxLength;
 
   @override
   State<AppTextFieldComponent> createState() => _TextFieldComponentState();
@@ -76,6 +78,7 @@ class _TextFieldComponentState extends State<AppTextFieldComponent> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLength: widget.maxLength,
       onChanged: widget.onChanged,
       controller: widget.controller,
       focusNode: _focusNode,
@@ -85,30 +88,33 @@ class _TextFieldComponentState extends State<AppTextFieldComponent> {
       obscureText: widget.obscureText,
       maxLines: widget.maxLines,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 10,
+        ),
         prefixIcon: widget.prefixIcon,
-        prefixIconColor: _focusNode.hasFocus
-            ? AppColors.primary.value
-            : AppColors.neutral.value,
+        prefixIconColor:
+            _focusNode.hasFocus
+                ? AppColors.primary.value
+                : AppColors.neutral.value,
         suffixIcon: widget.suffixIcon,
-        suffixIconColor: _focusNode.hasFocus
-            ? AppColors.primary.value
-            : AppColors.neutral.value,
+        suffixIconColor:
+            _focusNode.hasFocus
+                ? AppColors.primary.value
+                : AppColors.neutral.value,
         enabledBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(15),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
           borderSide: BorderSide(
-            color: widget.error ? AppColors.error.value : AppColors.neutral.value,
+            color:
+                widget.error ? AppColors.error.value : AppColors.neutral.value,
             width: 3,
           ),
         ),
         disabledBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(15),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
           borderSide: BorderSide(
-            color: widget.error ? AppColors.error.value : AppColors.neutral.value,
+            color:
+                widget.error ? AppColors.error.value : AppColors.neutral.value,
             width: 3,
           ),
         ),
@@ -121,23 +127,18 @@ class _TextFieldComponentState extends State<AppTextFieldComponent> {
         helperText: widget.helperText,
         focusColor: AppColors.neutral.value,
         focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(15),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
           borderSide: BorderSide(
             color:
-                widget.error == true ? AppColors.error.value : AppColors.neutral.value,
+                widget.error == true
+                    ? AppColors.error.value
+                    : AppColors.neutral.value,
             width: 3,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(15),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.error.value,
-            width: 3,
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
+          borderSide: BorderSide(color: AppColors.error.value, width: 3),
         ),
         hintText: widget.hintText,
         hintStyle: TextStyle(

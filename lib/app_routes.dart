@@ -1,3 +1,3 @@
 class AppRoutes {
-  static const players = '/';
+  static const games = '/';
 }
