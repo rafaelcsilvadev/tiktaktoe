@@ -9,7 +9,9 @@ class AppModule extends Module {
   }
 
   @override
-  List<Module> get imports => [];
+  List<Module> get imports => [
+    GameModule(),
+  ];
 
   @override
   void routes(r) {

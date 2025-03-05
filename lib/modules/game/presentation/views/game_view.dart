@@ -5,6 +5,7 @@ import 'package:tiktaktoe/core/theme/app_colors.dart';
 import 'package:tiktaktoe/modules/game/game_routes.dart';
 import 'package:tiktaktoe/modules/game/presentation/components/game_field.dart';
 import 'package:tiktaktoe/modules/game/presentation/components/player_points.dart';
+import 'package:tiktaktoe/modules/game/presentation/store/game_field_store/game_field_store.dart';
 
 class GameView extends StatefulWidget {
   const GameView({super.key});
@@ -16,6 +17,14 @@ class GameView extends StatefulWidget {
 class _GameViewState extends State<GameView> {
   bool isPlayer1 = true;
   List<String> housesValues = [];
+
+  final GameFieldStore _gameFieldStore = Modular.get<GameFieldStore>();
+
+  @override
+  void dispose() {
+    super.dispose();
+    Modular.dispose<GameFieldStore>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +52,7 @@ class _GameViewState extends State<GameView> {
           Gap(size.height * 0.1),
           Container(
             alignment: Alignment.center,
-            child: GameField(
-              isPlayer1: isPlayer1,
-              onHouse: (currentHouseValues) {
-                setState(() {
-                  isPlayer1 = !isPlayer1;
-                  housesValues = currentHouseValues;
-                });
-              },
-            ),
+            child: GameField(onHouse: () => _gameFieldStore.onChangePlayer()),
           ),
         ],
       ),
