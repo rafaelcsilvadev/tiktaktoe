@@ -7,22 +7,22 @@ class GameControllerImpl extends ChangeNotifier implements GameController {
 
   GameService gameService;
 
-  String nameP1 = '';
-  String nameP2 = '';
-  int pointP1 = 0;
-  int pointP2 = 0;
+  String _nameP1 = '';
+  String _nameP2 = '';
+  int _pointP1 = 0;
+  int _pointP2 = 0;
 
   @override
-  String get player1Name => nameP1;
+  String get player1Name => _nameP1;
 
   @override
-  String get player1point => nameP2;
+  String get player1point => _pointP1.toString();
 
   @override
-  String get player2Name => pointP1.toString();
+  String get player2Name => _nameP2;
 
   @override
-  String get player2point => pointP2.toString();
+  String get player2point => _pointP2.toString();
 
   @override
   bool hasWinCondition({
@@ -34,9 +34,9 @@ class GameControllerImpl extends ChangeNotifier implements GameController {
     );
 
     if (isPlayer1 && madePoint) {
-      pointP1++;
+      _pointP1++;
     } else if (!isPlayer1 && madePoint) {
-      pointP2++;
+      _pointP2++;
     }
 
     notifyListeners();
@@ -49,8 +49,15 @@ class GameControllerImpl extends ChangeNotifier implements GameController {
     required String player1Name,
     required String player2Name,
   }) {
-    nameP1 = player1Name;
-    nameP2 = player2Name;
+    _nameP1 = player1Name;
+    _nameP2 = player2Name;
+    notifyListeners();
+  }
+
+  @override
+  void resetPoint() {
+    _pointP1 = 0;
+    _pointP2 = 0;
     notifyListeners();
   }
 }

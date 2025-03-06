@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:tiktaktoe/modules/game/domain/services/game_service/game_service.dart';
 
 class GameServiceImpl implements GameService {
@@ -14,6 +15,9 @@ class GameServiceImpl implements GameService {
 
   @override
   bool hasWinCondition({required List<int> playersFields}) {
-    return winCondition.contains(playersFields);
+    if (playersFields.length < 3) return false;
+    return winCondition
+        .firstWhere((item) => listEquals(item, playersFields))
+        .isNotEmpty;
   }
 }
