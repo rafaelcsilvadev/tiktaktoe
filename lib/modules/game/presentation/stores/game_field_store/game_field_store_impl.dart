@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tiktaktoe/modules/game/presentation/store/game_field_store/game_field_store.dart';
+import 'package:tiktaktoe/modules/game/presentation/stores/game_field_store/game_field_store.dart';
 
 class GameFieldStoreImpl extends ChangeNotifier implements GameFieldStore {
   @override

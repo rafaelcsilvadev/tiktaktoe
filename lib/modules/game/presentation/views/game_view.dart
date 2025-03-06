@@ -5,7 +5,7 @@ import 'package:tiktaktoe/core/theme/app_colors.dart';
 import 'package:tiktaktoe/modules/game/game_routes.dart';
 import 'package:tiktaktoe/modules/game/presentation/components/game_field.dart';
 import 'package:tiktaktoe/modules/game/presentation/components/player_points.dart';
-import 'package:tiktaktoe/modules/game/presentation/store/game_field_store/game_field_store.dart';
+import 'package:tiktaktoe/modules/game/presentation/stores/game_field_store/game_field_store.dart';
 
 class GameView extends StatefulWidget {
   const GameView({super.key});

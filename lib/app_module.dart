@@ -4,11 +4,6 @@ import 'package:tiktaktoe/modules/game/game_module.dart';
 
 class AppModule extends Module {
   @override
-  void exportedBinds(Injector i) {
-    super.exportedBinds(i);
-  }
-
-  @override
   List<Module> get imports => [
     GameModule(),
   ];

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tiktaktoe/core/components/app_text/app_text.dart';
 import 'package:tiktaktoe/core/theme/app_colors.dart';
-import 'package:tiktaktoe/modules/game/presentation/store/game_field_store/game_field_store.dart';
+import 'package:tiktaktoe/modules/game/presentation/stores/game_field_store/game_field_store.dart';
 
 class GameField extends StatelessWidget {
   GameField({super.key, required this.onHouse});
