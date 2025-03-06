@@ -67,7 +67,7 @@ class _PlayersViewState extends State<PlayersView> {
                 ),
               ),
               Gap(size.height * 0.02),
-              Image.asset(AppImages.logo, scale: 1.5),
+              Image.asset(AppImages.logo, scale: 1.7),
               Gap(size.height * 0.02),
               Container(
                 alignment: Alignment.centerLeft,
@@ -104,7 +104,7 @@ class _PlayersViewState extends State<PlayersView> {
                   });
                 },
               ),
-              Gap(size.height * 0.06),
+              Gap(size.height * 0.03),
               SizedBox(
                 width: size.width,
                 height: 50,

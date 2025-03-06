@@ -65,7 +65,10 @@ class _GameViewState extends State<GameView> {
           secondaryButton: SizedBox(
             width: 450,
             child: AppButton.primary(
-              onPressed: () => Modular.to.popAndPushNamed(GameRoutes.players),
+              onPressed: () {
+                Modular.to.pop();
+                Modular.to.popAndPushNamed(GameRoutes.players);
+              },
               backgroundColor: WidgetStateProperty.all(AppColors.neutral.value),
               child: AppText.regular(
                 'Sair',
