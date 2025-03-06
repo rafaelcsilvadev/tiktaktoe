@@ -31,37 +31,30 @@ class GameFieldStoreImpl extends ChangeNotifier implements GameFieldStore {
   void onSetSymbol({required int index}) {
     if (isPlayer1) {
       _removeLatPlayerSymbol(symbol: _player1Symbol);
-
       housesValues[index] = _player1Symbol;
+      if (player1Fields.length == 3) player1Fields.removeAt(0); 
       player1Fields.add(index);
-
       notifyListeners();
       return;
     }
 
     _removeLatPlayerSymbol(symbol: _player2Symbol);
-
     housesValues[index] = _player2Symbol;
+    if (player2Fields.length == 3) player2Fields.removeAt(0);
     player2Fields.add(index);
-
     notifyListeners();
   }
 
   void _removeLatPlayerSymbol({required String symbol}) {
     if (isPlayer1 && player1Fields.length == 3) {
       housesValues[player1Fields[0]] = '';
-      player1Fields.removeAt(0);
-
       notifyListeners();
-
       return;
     }
 
     if (!isPlayer1 && player2Fields.length == 3) {
       housesValues[player2Fields[0]] = '';
-      player2Fields.removeAt(0);
       notifyListeners();
-
       return;
     }
   }

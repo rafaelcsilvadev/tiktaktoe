@@ -32,7 +32,7 @@ class GameControllerImpl extends ChangeNotifier implements GameController {
     final bool madePoint = gameService.hasWinCondition(
       playersFields: playersFields,
     );
-
+        
     if (isPlayer1 && madePoint) {
       _pointP1++;
     } else if (!isPlayer1 && madePoint) {

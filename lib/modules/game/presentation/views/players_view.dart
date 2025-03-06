@@ -86,7 +86,7 @@ class _PlayersViewState extends State<PlayersView> {
                   });
                 },
               ),
-              Gap(size.height * 0.03),
+              Gap(size.height * 0.01),
               Container(
                 alignment: Alignment.centerLeft,
                 child: AppText.regular(

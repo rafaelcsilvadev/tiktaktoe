@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gap/gap.dart';
+import 'package:tiktaktoe/core/components/app_button/app_button.dart';
+import 'package:tiktaktoe/core/components/app_dialog/app_dialog.dart';
+import 'package:tiktaktoe/core/components/app_text/app_text.dart';
 import 'package:tiktaktoe/core/theme/app_colors.dart';
 import 'package:tiktaktoe/modules/game/game_routes.dart';
 import 'package:tiktaktoe/modules/game/presentation/components/game_field.dart';
@@ -16,7 +19,6 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
-  bool isPlayer1 = true;
   List<String> housesValues = [];
 
   final GameFieldStore _gameFieldStore = Modular.get<GameFieldStore>();
@@ -25,13 +27,79 @@ class _GameViewState extends State<GameView> {
   @override
   void initState() {
     super.initState();
-    _gameController.resetPoint();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _gameController.resetPoint();
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
     Modular.dispose<GameFieldStore>();
+  }
+
+  void showChampionDialog({required String playerName}) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AppDialog.primary(
+          backgroundColor: AppColors.secondary.value,
+          title: 'Temos um vencedor',
+          message: '$playerName venceu essa partida',
+          primaryButton: SizedBox(
+            width: 450,
+            child: AppButton.primary(
+              onPressed: () {
+                _gameFieldStore.reset();
+                Modular.to.pop();
+              },
+              backgroundColor: WidgetStateProperty.all(AppColors.neutral.value),
+              child: AppText.regular(
+                'Continuar',
+                color: AppColors.secondary.value,
+                fontSize: 12,
+              ),
+            ),
+          ),
+          secondaryButton: SizedBox(
+            width: 450,
+            child: AppButton.primary(
+              onPressed: () => Modular.to.popAndPushNamed(GameRoutes.players),
+              backgroundColor: WidgetStateProperty.all(AppColors.neutral.value),
+              child: AppText.regular(
+                'Sair',
+                color: AppColors.secondary.value,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void onHouse() {
+    final List<int> fields =
+        _gameFieldStore.isPlayer1
+            ? _gameFieldStore.player1Fields
+            : _gameFieldStore.player2Fields;
+
+    final String playerChampionName =
+        _gameFieldStore.isPlayer1
+            ? _gameController.player1Name
+            : _gameController.player2Name;
+
+    final bool hasWin = _gameController.hasWinCondition(
+      playersFields: fields,
+      isPlayer1: _gameFieldStore.isPlayer1,
+    );
+
+    if (hasWin) {
+      showChampionDialog(playerName: playerChampionName);
+    }
+
+    _gameFieldStore.onChangePlayer();
   }
 
   @override
@@ -71,18 +139,7 @@ class _GameViewState extends State<GameView> {
           Gap(size.height * 0.1),
           Container(
             alignment: Alignment.center,
-            child: GameField(
-              onHouse: () {
-                _gameFieldStore.onChangePlayer();
-                _gameController.hasWinCondition(
-                  playersFields:
-                      isPlayer1
-                          ? _gameFieldStore.player1Fields
-                          : _gameFieldStore.player2Fields,
-                  isPlayer1: isPlayer1,
-                );
-              },
-            ),
+            child: GameField(onHouse: onHouse),
           ),
         ],
       ),

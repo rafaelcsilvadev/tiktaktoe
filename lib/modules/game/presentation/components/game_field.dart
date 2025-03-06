@@ -10,6 +10,11 @@ class GameField extends StatelessWidget {
   final void Function() onHouse;
   final GameFieldStore _gameFieldStore = Modular.get<GameFieldStore>();
 
+  void onTapHouse({required int index}) {
+    _gameFieldStore.onSetSymbol(index: index);
+    onHouse();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -25,10 +30,7 @@ class GameField extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 0);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 0),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -55,10 +57,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 1);
-                    onHouse;
-                  },
+                  onTap: () => onTapHouse(index: 1),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -89,10 +88,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 2);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 2),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -124,10 +120,7 @@ class GameField extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 3);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 3),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -158,10 +151,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 4);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 4),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -196,10 +186,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 5);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 5),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -235,10 +222,7 @@ class GameField extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 6);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 6),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -265,10 +249,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 7);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 7),
                   child: Container(
                     width: houseSize,
                     height: houseSize,
@@ -299,10 +280,7 @@ class GameField extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    _gameFieldStore.onSetSymbol(index: 8);
-                    onHouse();
-                  },
+                  onTap: () => onTapHouse(index: 8),
                   child: Container(
                     width: houseSize,
                     height: houseSize,

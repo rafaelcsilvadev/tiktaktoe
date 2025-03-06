@@ -15,9 +15,11 @@ class GameServiceImpl implements GameService {
 
   @override
   bool hasWinCondition({required List<int> playersFields}) {
-    if (playersFields.length < 3) return false;
-    return winCondition
-        .firstWhere((item) => listEquals(item, playersFields))
-        .isNotEmpty;
+    final List<int> fields = List.from(playersFields);
+
+    if (fields.length < 3) return false;
+
+    fields.sort((a, b) => a.compareTo(b));
+    return winCondition.any((item) => listEquals(item, fields));
   }
 }
