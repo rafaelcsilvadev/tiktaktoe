@@ -11,6 +11,7 @@ class GameField extends StatelessWidget {
   final GameFieldStore _gameFieldStore = Modular.get<GameFieldStore>();
 
   void onTapHouse({required int index}) {
+    if (_gameFieldStore.houseIsFull(index: index)) return;
     _gameFieldStore.onSetSymbol(index: index);
     onHouse(index);
   }

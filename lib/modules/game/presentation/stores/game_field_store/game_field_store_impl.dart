@@ -63,4 +63,9 @@ class GameFieldStoreImpl extends ChangeNotifier implements GameFieldStore {
       return;
     }
   }
+  
+  @override
+  bool houseIsFull({required int index}) {
+    return housesValues[index] != '';
+  }
 }

@@ -8,6 +8,7 @@ abstract class GameFieldStore extends ChangeNotifier {
   String get player2Symbol;
   bool get isPlayer1;
   void onSetSymbol({required int index});
+  bool houseIsFull({required int index});
   void onChangePlayer();
   void reset();
 }
