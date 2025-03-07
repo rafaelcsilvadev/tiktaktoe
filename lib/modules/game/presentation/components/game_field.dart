@@ -7,12 +7,12 @@ import 'package:tiktaktoe/modules/game/presentation/stores/game_field_store/game
 class GameField extends StatelessWidget {
   GameField({super.key, required this.onHouse});
 
-  final void Function() onHouse;
+  final void Function(int) onHouse;
   final GameFieldStore _gameFieldStore = Modular.get<GameFieldStore>();
 
   void onTapHouse({required int index}) {
     _gameFieldStore.onSetSymbol(index: index);
-    onHouse();
+    onHouse(index);
   }
 
   @override

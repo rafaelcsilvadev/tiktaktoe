@@ -128,11 +128,15 @@ class _GameViewState extends State<GameView> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   PlayerPoints(
-                    name: _gameController.player1Name,
+                    playerNameColor: _gameFieldStore.isPlayer1 ? AppColors.positive.value : AppColors.neutral.value,
+                    name:
+                        '(${_gameFieldStore.player1Symbol}) ${_gameController.player1Name}',
                     point: _gameController.player1point,
                   ),
                   PlayerPoints(
-                    name: _gameController.player2Name,
+                    playerNameColor: !_gameFieldStore.isPlayer1 ? AppColors.positive.value : AppColors.neutral.value,
+                    name:
+                        '(${_gameFieldStore.player2Symbol}) ${_gameController.player2Name}',
                     point: _gameController.player2point,
                   ),
                 ],
@@ -142,7 +146,7 @@ class _GameViewState extends State<GameView> {
           Gap(size.height * 0.1),
           Container(
             alignment: Alignment.center,
-            child: GameField(onHouse: onHouse),
+            child: GameField(onHouse: (_) => onHouse()),
           ),
         ],
       ),

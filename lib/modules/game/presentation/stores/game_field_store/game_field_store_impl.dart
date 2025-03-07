@@ -10,11 +10,14 @@ class GameFieldStoreImpl extends ChangeNotifier implements GameFieldStore {
   List<int> player2Fields = [];
   @override
   bool isPlayer1 = true;
-  final String _player1Symbol = 'X';
-  final String _player2Symbol = 'O';
+  @override
+  final String player1Symbol = 'X';
+  @override
+  final String player2Symbol = 'O';
 
   @override
   void reset() {
+    isPlayer1 = true;
     housesValues = List.filled(9, '');
     player1Fields = [];
     player2Fields = [];
@@ -29,17 +32,19 @@ class GameFieldStoreImpl extends ChangeNotifier implements GameFieldStore {
 
   @override
   void onSetSymbol({required int index}) {
+    if (housesValues[index] != '') return;
+    
     if (isPlayer1) {
-      _removeLatPlayerSymbol(symbol: _player1Symbol);
-      housesValues[index] = _player1Symbol;
-      if (player1Fields.length == 3) player1Fields.removeAt(0); 
+      _removeLatPlayerSymbol(symbol: player1Symbol);
+      housesValues[index] = player1Symbol;
+      if (player1Fields.length == 3) player1Fields.removeAt(0);
       player1Fields.add(index);
       notifyListeners();
       return;
     }
 
-    _removeLatPlayerSymbol(symbol: _player2Symbol);
-    housesValues[index] = _player2Symbol;
+    _removeLatPlayerSymbol(symbol: player2Symbol);
+    housesValues[index] = player2Symbol;
     if (player2Fields.length == 3) player2Fields.removeAt(0);
     player2Fields.add(index);
     notifyListeners();
