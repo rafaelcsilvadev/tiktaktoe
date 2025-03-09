@@ -122,7 +122,7 @@ class _GameViewState extends State<GameView> {
         children: [
           Gap(size.height * 0.01),
           AnimatedBuilder(
-            animation: _gameController,
+            animation: Listenable.merge([_gameFieldStore, _gameController]),
             builder: (_, _) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
