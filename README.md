@@ -31,7 +31,7 @@
 </a>
 <h3>Licença</h3>
 <p>Creative Commons NonCommercial</p>
-<h3>Author</h3>
+<h3>Autor</h3>
 <a href="https://www.linkedin.com/in/rafa-couto/"> 
     <p>Rafael Couto Silva</p>
 </a>
