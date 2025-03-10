@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white">
     <img src="https://img.shields.io/badge/flutter-%230175C2.svg?style=for-the-badge&logo=flutter&logoColor=white">
     <img src="https://img.shields.io/badge/mobile-%230175C2.svg?style=for-the-badge&logoColor=white">
-    <a src="./LICENSE">
+    <a href="./LICENSE">
         <img src="https://img.shields.io/badge/licença-CCNC-blue?style=for-the-badge">
     </a>
     <img src="https://img.shields.io/badge/mantido-sim-blue?style=for-the-badge">
@@ -31,6 +31,6 @@
 <h3>Licença</h3>
 <p>Creative Commons NonCommercial</p>
 <h3>Author</h3>
-<a src="https://www.linkedin.com/in/rafa-couto/"> 
+<a href="https://www.linkedin.com/in/rafa-couto/"> 
     <p>Rafael Couto Silva</p>
 </a>
