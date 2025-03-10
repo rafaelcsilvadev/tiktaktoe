@@ -6,6 +6,7 @@
     <img src="https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white">
     <img src="https://img.shields.io/badge/flutter-%230175C2.svg?style=for-the-badge&logo=flutter&logoColor=white">
     <img src="https://img.shields.io/badge/mobile-%230175C2.svg?style=for-the-badge&logoColor=white">
+    <img src="https://img.shields.io/badge/android-%230175C2.svg?style=for-the-badge&logoColor=white">
     <a href="./LICENSE">
         <img src="https://img.shields.io/badge/licença-CCNC-blue?style=for-the-badge">
     </a>
