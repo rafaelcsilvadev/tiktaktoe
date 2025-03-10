@@ -25,5 +25,6 @@ class AppTextField extends AppTextFieldComponent {
     super.obscureText,
     super.error,
     super.maxLines,
+    super.maxLength,
   });
 }
