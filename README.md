@@ -24,7 +24,7 @@
 <img src="./assets/readme/screen2.jpg" width="200">
 </p>
 <h3>Download</h3>
-<a href="./assets/readme/tiktaktoe.apk" download>
+<a href="https://drive.google.com/drive/folders/1WlFFn392W-Zwui3td-06KCF2FUtdFkuc?usp=sharing">
     <strong>
         <p>Baixar APK</p>
     </strong>
